@@ -1,5 +1,5 @@
 [package]
-name = "binary_search"
+name = "binary-search"
 version = "0.1.0"
 authors = ["Arnold Gandarillas Castillo <arkgast@gmail.com>"]
 edition = "2018"
