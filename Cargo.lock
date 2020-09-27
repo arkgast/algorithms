@@ -3,3 +3,10 @@
 [[package]]
 name = "binary_search"
 version = "0.1.0"
+dependencies = [
+ "standard-input",
+]
+
+[[package]]
+name = "standard-input"
+version = "0.1.0"
