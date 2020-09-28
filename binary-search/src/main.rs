@@ -1,6 +1,7 @@
 use standard_input;
+use std::cmp::Ordering;
 
-const VEC_LEN: i32 = 100;
+const VEC_LEN: i8 = 100;
 
 fn main() {
     loop {
@@ -15,8 +16,8 @@ fn main() {
     }
 }
 
-fn create_vector(len: i32) -> Vec<i32> {
-    let vec: Vec<i32> = (0..len).collect();
+fn create_vector(len: i8) -> Vec<i32> {
+    let vec: Vec<i32> = (0..len as i32).collect();
     return vec;
 }
 
@@ -30,16 +31,10 @@ fn binary_search(target: i32, vec: Vec<i32>) -> Option<(usize, i8)> {
         let guess = vec[mid];
         counter += 1;
 
-        if guess == target {
-            return Some((mid, counter));
-        }
-
-        if guess < target {
-            low = mid + 1;
-        }
-
-        if guess > target {
-            high = mid - 1;
+        match guess.cmp(&target) {
+            Ordering::Less => low = mid + 1,
+            Ordering::Greater => high = mid - 1,
+            Ordering::Equal => return Some((mid, counter))
         }
     }
     None
